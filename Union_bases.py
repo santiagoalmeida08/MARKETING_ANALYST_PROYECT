@@ -1,5 +1,3 @@
-"""En este script se dara solucion al 2do punto de la prueba tecnica"""
-
 #Librerias
 
 import os
