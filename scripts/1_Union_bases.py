@@ -5,7 +5,7 @@ import pandas as pd
 from functools import reduce
 
 #Ruta del archivo 
-file_path = 'data\\base_clientes.xlsx'
+file_path = 'C:\\Users\\Usuario\\Desktop\\Pruebas_tecnicas\\MARKETING_ANALYST_PROYECT\\data\\base_clientes.xlsx'
 
 #Extraer archivo y separar BD
 excel_file = pd.ExcelFile(file_path)
@@ -34,7 +34,7 @@ dataframes_to_merge = [df_canales, df_trx, df_perf, df_seg]
 df_fin = reduce(lambda left, right: pd.merge(left, right, on='Clientes', how='inner'), dataframes_to_merge)
 
 #Visualizamos y exportamos el dataframe resultante
-
+print('Muestra aleatoria de 10 registros BD unidas')
 df_fin.sample(10)
 
 output_folder = 'salidas'

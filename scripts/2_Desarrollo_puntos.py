@@ -4,7 +4,7 @@
 import pandas as pd 
 from matplotlib.pyplot import plot
 
-df = pd.read_csv('salidas\BD_clientes_final.csv')
+df = pd.read_csv('C:\\Users\\Usuario\\Desktop\\Pruebas_tecnicas\\MARKETING_ANALYST_PROYECT\\salidas\\BD_clientes_final.csv')
 df.sample(10)
 
 """ 2. Cantidad de clientes por Genero. """
@@ -33,6 +33,8 @@ df_compra['compra_promedio'] = df_compra['compra_promedio'].astype(int)
 # Formatear la columna 'compra_promedio' como moneda
 df_compra['compra_promedio'] = df_compra['compra_promedio'].apply(lambda x: "${:,}".format(x))
 
+print('..................................')
+print('..................................')
 print("Top departamentos con mas compras:")
 print(df_compra)
 
@@ -50,6 +52,8 @@ df_top = df_top.sort_values(by=['segmento', 'total_unidades'], ascending=[False,
 # Obtener el top 3 clientes por segmento
 df_top3_por_segmento = df_top.groupby('segmento').head(3)
 
+print('..................................')
+print('..................................')
 print("Top 3 clientes por segmento:")
 print(df_top3_por_segmento)
 
@@ -86,6 +90,8 @@ df_clientes = df_clientes.sort_values(by=['permanencia', 'recencia', 'unidades']
 top_3_clientes = df_clientes.head(3)
 
 # Mostrar los resultados
+print('..................................')
+print('..................................')
 print("Clientes seleccionados para los bonos de $100,000:")
 print(top_3_clientes)
 
