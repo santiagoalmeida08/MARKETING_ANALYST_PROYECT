@@ -57,4 +57,36 @@ print(df_top3_por_segmento)
 """5. Si tenemos 3 bonos de $100.000, a que clientes le darías este
 beneficio. Argumentar respuesta."""
 
+"""
+    Para premiar a nuestros clientes nos basaremos en 3 la remanencia, permanencia y el volumen 
+    de compra; de esta forma lograremos hacer un analisis justo de los clientes en base a su
+    compromiso e interaccion con la empresa.
+    
+    Asi entonces lo ideal es premiar a 
+    
+    -Clientes leales
+    -Clientes que nos visiten con frecuencia
+    -Clientes con grandes volumenes de compra
+    
+"""
+
+# Crear un DataFrame con factores clave para premiar
+
+df_clientes = df.groupby('clientes').agg({
+    'permanencia': 'mean',  
+    'recencia': 'mean',    
+    'unidades': 'sum'      
+}).reset_index()
+
+# Ordenar por alta permanencia, baja recencia y alto volumen de compras
+df_clientes = df_clientes.sort_values(by=['permanencia', 'recencia', 'unidades'], 
+                                      ascending=[False, True, False])
+
+# Seleccionar los 3 mejores clientes
+top_3_clientes = df_clientes.head(3)
+
+# Mostrar los resultados
+print("Clientes seleccionados para los bonos de $100,000:")
+print(top_3_clientes)
+
 
